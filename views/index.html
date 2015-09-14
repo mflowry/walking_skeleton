@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--ng-app denotes an Angular application; initialize the app-->
 <html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
@@ -7,20 +8,26 @@
 <body>
     <h1>MEAN Stack App</h1>
 
+    <!--IndexController is the Angular controller; it's scope is the ng-controller div-->
     <div ng-controller="IndexController">
+        <!--ng-show is bound to {{cat.name}}, it shows the element if it exists (i.e., if the user types something in the input-->
         <p ng-show="cat.name">Your new cat name is: {{cat.name}}</p>
+        <!--form items will be submitted without validation-->
         <form novalidate>
+            <!--ng-model sets $scope.cat.name to the input text-->
             Name: <input type="text" ng-model="cat.name" />
             <br />
+            <!--ng-click calls the add() function and passes in $scope.cat (i.e., whatever was entered in the input-->
             <input type="submit" ng-click="add(cat)" value="Save" />
         </form>
 
         <h4>Cats</h4>
         <ul>
+            <!--ng-repeat iterates over each cat in cats. cats is made available every time the page loads-->
             <li ng-repeat="cat in cats">{{cat.name}}</li>
         </ul>
     </div>
-
+    <!--Add links to angular and app.js script files-->
     <script src="/vendor/angular/angular.min.js" type="text/javascript"></script>
     <script src="/assets/scripts/app.min.js" type="text/javascript"></script>
 </body>
